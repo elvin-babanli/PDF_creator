@@ -1,0 +1,29 @@
+22 Collections Module
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Specialized containers: Counter (multiset), deque (fast appends/pops at both ends), defaultdict (auto defaults), namedtuple (lightweight classes).
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+from collections import Counter, deque, defaultdict, namedtuple
+print(Counter("banana").most_common(1))
+dq = deque([1,2,3]); dq.appendleft(0)
+dd = defaultdict(int); dd['x'] += 1
+Point = namedtuple('Point','x y'); p = Point(1,2)
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+Counter simplifies frequency tasks; deque is efficient for queues; defaultdict avoids KeyError; namedtuple provides attribute access without full classes.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Get the two most common letters in 'abracadabra'. 
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+Counter('abracadabra').most_common(2)

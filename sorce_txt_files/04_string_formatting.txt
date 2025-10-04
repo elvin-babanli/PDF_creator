@@ -1,0 +1,31 @@
+04 String Methods and Formatting
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Format values with f‑strings, str.format, or %-format (legacy). Control width, precision, alignment. Sanitize/escape user data if building SQL/HTML; prefer parameterized queries and templates.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+user = "Elvin"; score = 97.456
+print(f"{user} scored {score:.2f}")
+print("{u} scored {s:.1f}".format(u=user, s=score))
+print("%s scored %.0f" % (user, score))
+
+# alignment
+print(f"|{user:^10}|{score:>8.2f}|")
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+f‑strings evaluate expressions inline, very readable. Format specs like .2f control decimal places; >, <, ^ align within a field of given width.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Format PI=3.14159 as '3.14' using f‑string.
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+PI = 3.14159; print(f"{PI:.2f}")

@@ -1,0 +1,29 @@
+17 Lambda, map, filter, reduce
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Small anonymous functions plus functional tools for transforms, filters, and reductions. Prefer comprehensions for clarity when possible; use reduce for associative operations.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+from functools import reduce
+nums = [1,2,3,4]
+print(list(map(lambda x: x*x, nums)))
+print(list(filter(lambda x: x%2==0, nums)))
+print(reduce(lambda a,b: a+b, nums, 0))
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+map applies a function to each item; filter keeps those where predicate is True; reduce combines values into one using an accumulator. Initial value prevents errors on empty sequences.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Keep even squares for 0..10 using one expression.
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+vals = [x*x for x in range(11) if (x*x)%2==0]

@@ -1,0 +1,32 @@
+25 Random
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Pseudo‑random utilities: random, randint, choice, shuffle, sample. Seed for reproducibility. Don't use for crypto; use secrets instead.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+import random as R
+R.seed(42)
+print(R.random())
+print(R.randint(1,6))
+items = [1,2,3,4,5]
+R.shuffle(items); print(items)
+print(R.sample(range(100), 5))
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+Seeding fixes the random sequence for testing. shuffle mutates the list. sample returns a new list of unique items. For secure tokens, use secrets.token_hex.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Pick 3 distinct random numbers from 1..10.
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+import random as R
+print(R.sample(range(1,11), 3))

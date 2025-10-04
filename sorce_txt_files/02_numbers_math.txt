@@ -1,0 +1,41 @@
+02 Numbers and Math
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Python supports integers with arbitrary precision, floats (binary IEEE‑754), complex numbers, and decimals (exact base‑10 via decimal module). Use math for common functions and fractions for rational arithmetic.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+import math, decimal, fractions
+
+x = 7 // 3    # floor division -> 2
+y = 7 / 3     # true division  -> 2.333...
+z = 7 % 3     # modulo          -> 1
+p = 2 ** 10   # exponentiation  -> 1024
+
+print(math.sqrt(16), math.ceil(2.1), math.floor(2.9))
+
+# Decimal for money
+D = decimal.Decimal
+price = D("0.10") + D("0.20")
+print("Decimal price:", price)
+
+# Fractions
+f = fractions.Fraction(2, 3) + fractions.Fraction(1, 6)
+print("Fraction:", f)
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+// truncates towards negative infinity for ints. / always returns float. Decimal avoids binary rounding issues in finance. Fractions keep exact rational results. Prefer math.isclose for float comparisons.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Why is 0.1 + 0.2 != 0.3 in floats, and how to compare properly?
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+Binary floating point cannot represent some decimals exactly; use math.isclose(0.1+0.2, 0.3) or the decimal module for exact arithmetic.

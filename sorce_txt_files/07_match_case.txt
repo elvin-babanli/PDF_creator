@@ -1,0 +1,37 @@
+07 Match Case (Pattern Matching)
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Python 3.10+ structural pattern matching simplifies complex branching by matching values and shapes.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+def classify_http(code):
+    match code:
+        case 200:
+            return "OK"
+        case 400 | 404:
+            return "Client error"
+        case 500:
+            return "Server error"
+        case _:
+            return "Unknown"
+
+print(classify_http(404))
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+The match statement compares the subject to patterns in order; pipes combine alternatives; _ is the wildcard. Pattern matching also destructures sequences and dicts.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Match a tuple (x, y) where x==0 and extract y.
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+match pt:
+    case (0, y): print("On Y axis", y)

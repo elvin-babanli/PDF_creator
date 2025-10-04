@@ -1,0 +1,35 @@
+06 Conditionals
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Use if/elif/else to branch logic. Values have truthiness: 0, '', [], {}, set(), None evaluate to False. Chain comparisons like 0 < x < 10.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+x = 42
+if x > 50:
+    print("big")
+elif x == 42:
+    print("exactly 42")
+else:
+    print("small")
+
+s = ""
+if not s:
+    print("empty string")
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+Truthiness simplifies checks. Chain comparisons are more readable than combining with and. Remember to handle edge cases in elif chains.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Write a condition that checks if s is a non‑empty string.
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+if isinstance(s, str) and s: ...

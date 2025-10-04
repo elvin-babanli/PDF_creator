@@ -1,0 +1,37 @@
+28 Inheritance and Dunder Methods
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Reuse behavior with inheritance; override methods. Dunder methods customize built‑ins like len(), iteration, arithmetic, context managers.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+class Animal:
+    def speak(self): return "..."
+class Dog(Animal):
+    def speak(self): return "Woof"
+
+d = Dog(); print(d.speak())
+
+class Box:
+    def __init__(self): self.items=[]
+    def __len__(self): return len(self.items)
+
+b = Box(); b.items.extend([1,2,3]); print(len(b))
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+Dog inherits speak and overrides it. __len__ allows len(b) to call b.__len__(). Implementing dunder methods integrates classes with Python idioms.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Implement __iter__ for Box to iterate over items.
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+def __iter__(self):
+    return iter(self.items)

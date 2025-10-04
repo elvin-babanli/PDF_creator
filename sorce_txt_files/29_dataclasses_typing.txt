@@ -1,0 +1,35 @@
+29 Dataclasses and Typing
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Dataclasses reduce boilerplate for simple data containers; typing adds static hints that improve readability and tooling.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+from dataclasses import dataclass
+from typing import List
+
+@dataclass
+class User:
+    name: str
+    age: int
+    tags: List[str]
+
+u = User("Elvin", 23, ["python","ai"])
+print(u)
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+Dataclasses auto‑generate __init__, __repr__, __eq__. Type hints are not enforced at runtime but help linters/IDEs. Use Optional[T] for nullable fields.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Why prefer dataclass over a plain dict for records?
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+Dataclasses provide structure, validation points, equality, defaults, and IDE support, reducing bugs versus unstructured dicts.

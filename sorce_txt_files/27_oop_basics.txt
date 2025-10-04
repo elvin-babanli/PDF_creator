@@ -1,0 +1,37 @@
+27 OOP Basics
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Define classes to model data/behavior. Use __init__ for construction, methods for behavior, and __repr__ for debugging. Favor composition over inheritance by default.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+class Person:
+    def __init__(self, name):
+        self.name = name
+    def greet(self):
+        return f"Hi, I'm {self.name}"
+    def __repr__(self):
+        return f"Person(name={self.name!r})"
+
+p = Person("Elvin"); print(p.greet()); print(p)
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+Attributes belong to each instance. __repr__ returns an unambiguous representation for debugging. Encapsulation is by convention (single underscore).
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Add an age attribute and method is_adult (>=18).
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+class Person:
+    def __init__(self, name, age):
+        self.name, self.age = name, age
+    def is_adult(self):
+        return self.age >= 18

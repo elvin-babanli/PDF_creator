@@ -1,0 +1,33 @@
+03 Strings Basics
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Strings are immutable sequences of Unicode code points. Supports indexing, slicing, concatenation, repetition, and membership tests. Useful methods: lower, upper, title, replace, find, split, join. 
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+s = "Python"
+print(s[0], s[-1])     # indexing
+print(s[1:4])          # slicing 'yth'
+print(len(s))
+print("py" in s.lower())
+
+name = "elvin babanli"
+print(name.title())
+print(name.replace(" ", "_"))
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+Indexing accesses characters; negative indices count from the end. Slices are half‑open [start:end). Immutability means operations create new strings. Join is more efficient than string concatenation in loops.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+What happens if you assign s[0] = 'X'? Why?
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+TypeError: strings are immutable; you must create a new string like 'X' + s[1:].

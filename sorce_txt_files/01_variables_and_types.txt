@@ -1,0 +1,38 @@
+01 Variables and Data Types
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Variables bind names to objects at runtime. Python is dynamically typed: names can be rebound to any type. Common built‑ins: int, float, bool, str, NoneType. Mutable vs immutable types matter for behavior and performance. Use descriptive snake_case names and constants in UPPER_CASE. 
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+x = 10              # int
+pi = 3.14159         # float
+name = "Elvin"       # str
+is_active = True     # bool
+n = None             # NoneType
+
+# multiple assignment and swapping
+a, b = 1, 2
+a, b = b, a
+
+print(type(x), type(pi), type(name), type(is_active), type(n))
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+We assign values without declaring types; Python infers them. Swapping uses tuple unpacking. Immutables (ints, strings, tuples) produce new objects on change; mutables (lists, dicts, sets) are modified in place. This affects function arguments and copying semantics.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+What is the output?
+x = 1
+x = x + 2
+print(type(x), x)
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+<class 'int'> 3

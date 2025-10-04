@@ -1,0 +1,29 @@
+05 Input and Output
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+input() returns text; convert types as needed. print() supports sep, end, file. For large outputs, join strings or write to files. 
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+name = input("Enter name: ")
+age = int(input("Age: "))
+print("Hello", name, "age:", age, sep=" | ", end="!\n")
+with open("hello.txt","w", encoding="utf-8") as f:
+    print(f"Hi {name}", file=f)
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+input always returns str. Casting ensures correct arithmetic. print can redirect to a file. For performance, avoid concatenating many small strings; use join or write once.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Why convert input to int for numeric operations?
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+Because input() returns str; numeric ops require int/float.

@@ -1,0 +1,41 @@
+13 Exceptions
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Use try/except/else/finally to handle errors. Catch specific exceptions, not bare except. Raise custom exceptions for domain errors. Use context managers for cleanup.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+try:
+    val = int("x")   # ValueError
+except ValueError as e:
+    print("Bad value:", e)
+else:
+    print("Parsed OK")
+finally:
+    print("Done")
+
+def divide(a,b):
+    if b == 0:
+        raise ZeroDivisionError("b cannot be 0")
+    return a/b
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+Except runs on error; else runs when no exception; finally always runs. Raising communicates failure to callers. Log exceptions with context; avoid swallowing them silently.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Safely parse integer from input string s; if invalid, return 0.
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+def to_int(s):
+    try:
+        return int(s)
+    except ValueError:
+        return 0

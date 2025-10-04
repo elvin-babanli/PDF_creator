@@ -1,0 +1,37 @@
+14 File Handling
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Use open with context managers to read/write text and binary files. Understand newline, encoding, buffering. For large files, stream line by line.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+# write
+with open("demo.txt","w",encoding="utf-8") as f:
+    f.write("hello\nworld")
+
+# read all
+with open("demo.txt","r",encoding="utf-8") as f:
+    data = f.read()
+
+# stream
+with open("demo.txt","r",encoding="utf-8") as f:
+    for line in f:
+        print(line.rstrip())
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+The with block ensures files close on errors. Specify UTF‑8 encoding. Iterating over the file yields lines efficiently. For CSV/JSON, use dedicated modules.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+How to count lines in a large file efficiently?
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+with open(path,'r',encoding='utf-8') as f:
+    count = sum(1 for _ in f)

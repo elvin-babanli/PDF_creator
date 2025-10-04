@@ -1,0 +1,36 @@
+10 Functions and Arguments
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Functions encapsulate logic. Parameters can be positional, keyword‑only, defaulted, *args, **kwargs. Document behavior and types with docstrings and hints.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+def greet(name, title="Mr/Ms"):
+    return f"Hello {title} {name}"
+
+def add(*nums): 
+    return sum(nums)
+
+def show(**kw): 
+    print(kw)
+
+print(greet("Elvin"))
+print(add(1,2,3))
+show(role="admin", active=True)
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+Default values are evaluated once at definition. Use None as default for mutable parameters and create inside. *args collects extra positionals, **kwargs collects extra keywords.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Write power(base, exp=2) that returns base**exp.
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+def power(base, exp=2): return base ** exp

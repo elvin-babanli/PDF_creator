@@ -1,0 +1,35 @@
+15 Context Managers
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Context managers guarantee setup/teardown. Implement with __enter__/__exit__ or contextlib contextmanager.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+from contextlib import contextmanager
+@contextmanager
+def opening(path):
+    f = open(path, 'r', encoding='utf-8')
+    try:
+        yield f
+    finally:
+        f.close()
+
+with opening('demo.txt') as f:
+    print(f.readline().strip())
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+The decorated function yields a resource; after the with block, __exit__ closes it even on exceptions. This avoids leaks and duplicated try/finally code.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Why use context managers instead of manual open/close?
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+They ensure cleanup on all paths, including exceptions, reducing bugs.

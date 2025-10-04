@@ -1,0 +1,31 @@
+23 Itertools
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Powerful iterator utilities: product, permutations, combinations, accumulate, chain, groupby, islice. Efficient and memory‑friendly.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+import itertools as it
+print(list(it.accumulate([1,2,3])))
+print(list(it.chain([1,2],[3,4])))
+print(list(it.permutations('abc',2)))
+print(list(it.combinations('abc',2)))
+print(list(it.product([0,1], repeat=3)))
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+accumulate computes running totals; chain flattens iterables; permutations/combinations generate arrangements; product builds Cartesian products.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Build an infinite counter starting at 10, step 2, and print first 3 values.
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+c = it.count(10,2)
+for _ in range(3): print(next(c))

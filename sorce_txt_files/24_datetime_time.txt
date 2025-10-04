@@ -1,0 +1,31 @@
+24 Datetime and Time
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Work with dates/times: now, arithmetic with timedelta, formatting/parsing with strftime/strptime, timezone handling with zoneinfo (3.9+).
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+from datetime import datetime, timedelta
+now = datetime.now()
+tomorrow = now + timedelta(days=1)
+print(now.strftime('%Y-%m-%d %H:%M'))
+parsed = datetime.strptime('2025-01-15','%Y-%m-%d')
+print(parsed.date())
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+strftime formats datetimes to strings; strptime parses strings. Timedelta supports addition/subtraction. For tz‑aware datetimes, use zoneinfo for correct conversions.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Parse '2024-12-31 23:59' and add 2 minutes; print result.
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+dt = datetime.strptime('2024-12-31 23:59','%Y-%m-%d %H:%M')
+print(dt + timedelta(minutes=2))

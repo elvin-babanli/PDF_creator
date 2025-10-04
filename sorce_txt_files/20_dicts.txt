@@ -1,0 +1,34 @@
+20 Dictionaries
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Mapping of keys to values. Methods: get, items, keys, values, setdefault, update. Merge with | (3.9+). Use dict comprehensions. Keys must be hashable.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+user = {"name":"Elvin","age":23}
+user["city"]="Warsaw"
+print(list(user.keys()))
+print(user.get("missing","default"))
+
+# merge
+extra = {"active":True}
+merged = user | extra
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+Access with square brackets raises KeyError if missing; get returns default. items returns (key,value) pairs for iteration. Merging with | creates a new dict.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Create a dict counting word frequencies in a list words.
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+freq = {}
+for w in words:
+    freq[w] = freq.get(w, 0) + 1

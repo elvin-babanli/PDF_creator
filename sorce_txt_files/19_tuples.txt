@@ -1,0 +1,31 @@
+19 Tuples
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Immutable sequences; good for fixed collections and dict keys. Support unpacking, including starred and nested patterns.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+t = (1,2,3)
+x,y,z = t
+x, *mid, z = (1,2,3,4,5)
+print(mid)
+
+# single-element tuple
+single = (42,)
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+Immutability enables hashing (if elements are hashable). Unpacking improves readability. Use tuples for heterogeneous records that shouldn't change.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Why can tuples be dict keys but lists cannot?
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+Tuples are immutable and hashable (if elements are hashable); lists are mutable and unhashable.

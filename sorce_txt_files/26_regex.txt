@@ -1,0 +1,32 @@
+26 Regular Expressions
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Search, validate, and extract patterns with the re module. Use raw strings r'' for patterns. Common tokens: \d digits, \w word, \s space, . any char, ^/$ anchors, [] classes, () groups, ? * + quantifiers.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+import re
+m = re.search(r"(\d+)", "Item42")
+print(m.group(1))
+print(re.findall(r"\b\w+\b", "Hello, world!"))
+
+# simple email (basic)
+pat = r"^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$"
+print(bool(re.match(pat, "a@b.com")))
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+Always compile complex patterns for speed. Use groups to capture subparts. Escape special characters. For readability, use re.VERBOSE with comments.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Write a regex that captures a 3‑letter uppercase word at start of line.
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+pat = r"^[A-Z]{3}\b"

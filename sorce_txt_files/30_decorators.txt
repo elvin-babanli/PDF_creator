@@ -1,0 +1,41 @@
+30 Decorators
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Higher‑order wrappers that extend behavior of functions without modifying their code. Common uses: logging, timing, caching, access control, retries.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+import time
+
+def timer(fn):
+    def wrapper(*a, **kw):
+        t0 = time.perf_counter()
+        try:
+            return fn(*a, **kw)
+        finally:
+            dt = time.perf_counter() - t0
+            print(f"{fn.__name__} took {dt:.4f}s")
+    return wrapper
+
+@timer
+def work():
+    sum(range(1_000_00))
+
+work()
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+The decorator returns a new function that calls the original plus extra logic. The @ syntax assigns work = timer(work). Use functools.wraps to preserve metadata.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+What does @timer print and why is finally used?
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+It prints the function duration after execution; finally guarantees printing even if the function raises or returns early.

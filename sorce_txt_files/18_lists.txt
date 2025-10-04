@@ -1,0 +1,41 @@
+18 Lists
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Mutable sequence supporting append, extend, insert, remove, pop, sort, reverse, slicing. Be aware of shallow vs deep copies and list multiplication pitfalls.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+arr = [3,1,2]
+arr.append(5); arr.extend([6,7])
+arr.insert(1, 9)
+arr.remove(1)        # first match
+arr.sort()           # in place
+arr2 = sorted(arr)   # new list
+
+# shallow copy
+b = arr[:]
+
+# list of lists pitfall
+matrix = [[0]*3]*3
+matrix[0][0] = 1
+print(matrix)  # unexpected
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+matrix uses the same inner list three times; use [[0 for _ in range(3)] for _ in range(3)]. Shallow copy duplicates the outer list only. sorted returns a new list, leaving original intact.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Remove duplicates from a list while preserving order.
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+seen=set(); out=[]
+for x in arr:
+    if x not in seen:
+        out.append(x); seen.add(x)

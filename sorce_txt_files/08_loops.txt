@@ -1,0 +1,44 @@
+08 Loops
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+for iterates over any iterable; while repeats while a condition holds. Use break, continue, else on loops. Prefer enumerate and zip over manual index counters.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+# for with range
+for i in range(1, 6):
+    print("Number:", i)
+
+# iterate a list
+fruits = ["apple","banana","cherry"]
+for f in fruits:
+    print(f)
+
+# while
+count = 0
+while count < 3:
+    print("Count:", count)
+    count += 1
+
+# enumerate
+for idx, val in enumerate(fruits, 1):
+    print(idx, val)
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+range is lazy in Py3. The loop else runs if no break occurred. enumerate gives index+value cleanly; zip pairs multiple iterables.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Print only even numbers from 1..10.
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+for i in range(1,11):
+    if i % 2 == 0:
+        print(i)

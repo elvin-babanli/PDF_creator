@@ -1,0 +1,28 @@
+21 Sets
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Unordered collections of unique items. Support union, intersection, difference, symmetric difference. Great for membership tests and deduplication.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+a = {1,2,3}; b = {3,4,5}
+print(a | b, a & b, a - b, a ^ b)
+nums = [1,2,2,3]
+print(list(set(nums)))
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+Set operations are O(n) on average for membership and insertion. Converting to set removes duplicates but loses order; for ordered dedup, use dict.fromkeys or a seen set loop.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Find common elements between two lists a and b.
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+common = set(a) & set(b)

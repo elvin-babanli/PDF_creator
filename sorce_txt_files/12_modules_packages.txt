@@ -1,0 +1,31 @@
+12 Modules and Packages
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Modules are .py files; packages are directories with __init__.py (or implicit namespaces). Import using absolute or relative paths. __name__ == '__main__' guards script entry points.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+# mypkg/mymod.py
+def hello(name): return f"Hello {name}"
+
+# main.py
+from mypkg.mymod import hello
+if __name__ == "__main__":
+    print(hello("Elvin"))
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+Absolute imports are clearer and robust. The main guard prevents code from executing on import. Use virtual environments to isolate dependencies.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+How do you run a module as a script?
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+python -m package.module  # runs module's __main__ context

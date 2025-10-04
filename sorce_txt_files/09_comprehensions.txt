@@ -1,0 +1,28 @@
+09 Comprehensions
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+List/set/dict comprehensions provide concise, readable transformations and filters; often faster than explicit loops.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+squares = [x*x for x in range(10)]
+evens = {x for x in range(10) if x % 2 == 0}
+mapping = {x: x*x for x in range(5)}
+print(squares, evens, mapping)
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+Comprehensions evaluate expression for each item; optional if clause filters. Dict/set comprehensions mirror list comprehensions with braces.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Build a dict mapping numbers 1..5 to their cubes.
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+cubes = {n: n**3 for n in range(1,6)}

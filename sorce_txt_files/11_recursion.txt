@@ -1,0 +1,35 @@
+11 Recursion
+────────────────────────────────────────────
+Overview
+────────────────────────────────────────────
+Recursion solves problems by calling the same function on smaller inputs. Requires a base case to stop and a recursive step to progress. Useful for divide‑and‑conquer (quick sort), tree/graph traversal, and mathematical sequences.
+
+────────────────────────────────────────────
+Example Code
+────────────────────────────────────────────
+def factorial(n):
+    """Return n! using recursion"""
+    if n == 0 or n == 1:   # Base case
+        return 1
+    return n * factorial(n-1)  # Recursive step
+
+print(factorial(5))  # 120
+
+────────────────────────────────────────────
+Explanation
+────────────────────────────────────────────
+Each call reduces n by 1 until it hits 0/1; then the call stack unwinds multiplying results. Recursion depth is limited (sys.getrecursionlimit). Tail recursion is not optimized in CPython, so beware deep recursion.
+
+────────────────────────────────────────────
+Question
+────────────────────────────────────────────
+Write recursive fibonacci(n). What is its time complexity?
+
+────────────────────────────────────────────────
+Answer
+────────────────────────────────────────────────
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+# Exponential O(phi^n); memoization reduces to O(n).
